@@ -1,8 +1,8 @@
 /** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2024/2025
  *   Modul               : : 04 –  Dynamic Structures
- *   Hari dan Tanggal    : Senin, 4 May 2026
+ *   Hari dan Tanggal    : Senin, 4 April 2026
  *   Nama (NIM)          : Marcello Menata Pandiangan (13224069)
- *   Nama File           : prak4_13224069.c
+ *   Nama File           : prak2_13224069.c
  *   Deskripsi           : 
  * 
  */
@@ -55,6 +55,17 @@ void inputlsit(struct List* l, int var) {
     temp->next = newNode;
 }
 
+    void clear(struct List* l) {
+    struct Node* current = l->head;
+    struct Node* nextNode;
+    while (current != NULL) {
+        nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
+    l->head = NULL;
+}
+
 int main() {
     struct List List1;
     struct List List2;
@@ -100,10 +111,24 @@ int main() {
                 inputlsit (&ListMerged, temp1->data);
                 temp1 = temp1->next;   
             }
-
+        
+        while (temp1 != NULL)
+        {
+            inputlsit (&ListMerged, temp1->data);
+            temp2 = temp1->next;
+        }
+        while (temp2 != NULL)
+        {
+            inputlsit (&ListMerged, temp2->data);
+            temp2 = temp2->next;
+        }
+        
     }
 }
     display (&ListMerged);
-    
+    clear (&List1);
+    clear (&List2);
+    clear (&ListMerged);
+
     return 0;
 }
