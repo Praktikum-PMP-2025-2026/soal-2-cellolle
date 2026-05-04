@@ -4,7 +4,7 @@
  *   Nama (NIM)          : Marcello Menata Pandiangan (13224069)
  *   Nama File           : prak2_13224069.c
  *   Deskripsi           : 
- * 
+ *
  */
 
 
