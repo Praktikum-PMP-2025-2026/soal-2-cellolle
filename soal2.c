@@ -1,8 +1,8 @@
 /** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2024/2025
  *   Modul               : : 04 –  Dynamic Structures
- *   Hari dan Tanggal    : Senin, 4 April 2026
+ *   Hari dan Tanggal    : Senin, 4 May 2026
  *   Nama (NIM)          : Marcello Menata Pandiangan (13224069)
- *   Nama File           : prak2_13224069.c
+ *   Nama File           : prak4_13224069.c
  *   Deskripsi           : 
  * 
  */
@@ -83,13 +83,10 @@ int main() {
         inputlsit(&List2 , inputM);
     }
     inputtotal = M+N;
-    display (&List1);
-    display (&List2);
+
 
     struct Node* temp1 = List1.head;
-    printf("%d -> ", temp1->data);
     struct Node* temp2 = List2.head;
-    printf("%d -> ", temp2->data);
     for (int i = 0; i < inputtotal; i++)
     {
         while (temp1 != NULL && temp2 != NULL) {
