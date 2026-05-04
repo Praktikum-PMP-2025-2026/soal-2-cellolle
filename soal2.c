@@ -55,16 +55,6 @@ void inputlsit(struct List* l, int var) {
     temp->next = newNode;
 }
 
-    void clear(struct List* l) {
-    struct Node* current = l->head;
-    struct Node* nextNode;
-    while (current != NULL) {
-        nextNode = current->next;
-        free(current);
-        current = nextNode;
-    }
-    l->head = NULL;
-}
 
 int main() {
     struct List List1;
@@ -111,7 +101,9 @@ int main() {
                 inputlsit (&ListMerged, temp1->data);
                 temp1 = temp1->next;   
             }
-        
+    }
+
+             
         while (temp1 != NULL)
         {
             inputlsit (&ListMerged, temp1->data);
@@ -123,12 +115,8 @@ int main() {
             temp2 = temp2->next;
         }
         
-    }
 }
     display (&ListMerged);
-    clear (&List1);
-    clear (&List2);
-    clear (&ListMerged);
 
     return 0;
 }
