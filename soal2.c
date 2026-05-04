@@ -11,21 +11,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+// PPT Pak Hilton
 struct Node {
     int data;
     struct Node* next;
 };
-
+// PPT Pak Hilton
 struct List {
     struct Node* head;
 };
 
-
+// PPT Pak Hilton
 int Kosong(struct List* list) {
     return list->head == NULL;
 }
-
+// PPT Pak Hilton (Traversal dengan modifikasi)
 void display(struct List* list) {
     printf("MERGED ");
     struct Node* temp = list->head;
@@ -39,10 +39,10 @@ void display(struct List* list) {
     }
 
 }
-
-void inputlsit(struct List* list, int var) {
+//PPT PAK HILTON (Insertion in the end) dengan modifikasi
+void inputlsit(struct List* list, int input) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = var;
+    newNode->data = input;
     newNode->next = NULL;
     if (list->head == NULL) {
         list->head = newNode;
