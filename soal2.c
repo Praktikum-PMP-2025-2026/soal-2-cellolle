@@ -2,8 +2,8 @@
  *   Modul               : : 04 –  Dynamic Structures
  *   Hari dan Tanggal    : Senin, 4 May 2026
  *   Nama (NIM)          : Marcello Menata Pandiangan (13224069)
- *   Nama File           : prak2_13224069.c
- *   Deskripsi           : 
+ *   Nama File           : prak4_13224069.c
+ *   Deskripsi           : Penggabungan Dua Jalur Terurut
  * 
  */
 
