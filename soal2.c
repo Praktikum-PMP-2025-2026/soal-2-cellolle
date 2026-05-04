@@ -1,6 +1,6 @@
 /** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2024/2025
  *   Modul               : : 04 –  Dynamic Structures
- *   Hari dan Tanggal    : Senin, 4 April 2026
+ *   Hari dan Tanggal    : Senin, 4 May 2026
  *   Nama (NIM)          : Marcello Menata Pandiangan (13224069)
  *   Nama File           : prak2_13224069.c
  *   Deskripsi           : 
@@ -22,14 +22,14 @@ struct List {
 };
 
 
-int Kosong(struct List* l) {
-    return l->head == NULL;
+int Kosong(struct List* list) {
+    return list->head == NULL;
 }
 
-void display(struct List* l) {
+void display(struct List* list) {
     printf("MERGED ");
-    struct Node* temp = l->head;
-    if (Kosong(l)) {
+    struct Node* temp = list->head;
+    if (Kosong(list)) {
         printf("EMPTY");
         return;
     }
@@ -40,15 +40,15 @@ void display(struct List* l) {
 
 }
 
-void inputlsit(struct List* l, int var) {
+void inputlsit(struct List* list, int var) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = var;
     newNode->next = NULL;
-    if (l->head == NULL) {
-        l->head = newNode;
+    if (list->head == NULL) {
+        list->head = newNode;
         return;
     }
-    struct Node* temp = l->head;
+    struct Node* temp = list->head;
     while (temp->next != NULL) {
         temp = temp->next;
     }
@@ -68,9 +68,6 @@ int main() {
     int N;
     int M;
     int inputtotal;
-    int inputterbanyak;
-    int nilai1;
-    int nilai2;
     scanf("%d", &N);
     for (int i = 0; i < N; i++)
     {
