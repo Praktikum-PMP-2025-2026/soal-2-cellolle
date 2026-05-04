@@ -21,43 +21,9 @@ struct List {
     struct Node* head;
 };
 
-// Fungsi memeriksa status kekosongan list
+
 int Kosong(struct List* l) {
     return l->head == NULL;
-}
-
-
-void sort(struct List* l) {
-    if (Kosong(l)) return;
-    struct Node *i, *j;
-    int temp;
-    for (i = l->head; i->next != NULL; i = i->next) {
-        for (j = i->next; j != NULL; j = j->next) {
-            if (i->data > j->data) {
-                temp = i->data;
-                i->data = j->data;
-                j->data = temp;
-            }
-        }
-    }
-}
-
-void removeDuplicates(struct List* l) {
-    struct Node *ptr1, *ptr2, *dup;
-    ptr1 = l->head;
-    while (ptr1 != NULL && ptr1->next != NULL) {
-        ptr2 = ptr1;
-        while (ptr2->next != NULL) {
-            if (ptr1->data == ptr2->next->data) {
-                dup = ptr2->next;
-                ptr2->next = ptr2->next->next;
-                free(dup);
-            } else {
-                ptr2 = ptr2->next;
-            }
-        }
-        ptr1 = ptr1->next;
-    }
 }
 
 void display(struct List* l) {
@@ -74,9 +40,9 @@ void display(struct List* l) {
 
 }
 
-void inputlsit(struct List* l, int val) {
+void inputlsit(struct List* l, int var) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = val;
+    newNode->data = var;
     newNode->next = NULL;
     if (l->head == NULL) {
         l->head = newNode;
@@ -88,6 +54,7 @@ void inputlsit(struct List* l, int val) {
     }
     temp->next = newNode;
 }
+
 
 int main() {
     struct List List1;
@@ -117,27 +84,39 @@ int main() {
         inputlsit(&List2 , inputM);
     }
     inputtotal = M+N;
-    display (&List1);
-    display (&List2);
+
 
     struct Node* temp1 = List1.head;
-    printf("%d -> ", temp1->data);
     struct Node* temp2 = List2.head;
-    printf("%d -> ", temp2->data);
     for (int i = 0; i < inputtotal; i++)
     {
-        while (temp1 != NULL) {
-        inputlsit (&ListMerged, temp1->data);
-        temp1 = temp1->next;
-        }
-
-        while (temp2 != NULL){
-        inputlsit (&ListMerged, temp2->data);
-        temp2 = temp2->next;   
-        }
-
+        while (temp1 != NULL && temp2 != NULL) {
+            if (temp1 -> data >= temp2 -> data)
+            {
+                inputlsit (&ListMerged, temp2->data);
+                temp2 = temp2->next;
+            }
+            else if (temp2 -> data > temp1 -> data)
+            {
+                inputlsit (&ListMerged, temp1->data);
+                temp1 = temp1->next;   
+            }
     }
+
+             
+        while (temp1 != NULL)
+        {
+            inputlsit (&ListMerged, temp1->data);
+            temp1 = temp1->next;
+        }
+        while (temp2 != NULL)
+        {
+            inputlsit (&ListMerged, temp2->data);
+            temp2 = temp2->next;
+        }
+        
+}
     display (&ListMerged);
-    
+
     return 0;
 }
